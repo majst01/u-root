@@ -77,6 +77,7 @@ func main() {
 		}
 	}
 	envs = os.Environ()
+	envs = append(envs, "GOTRACEBACK=system")
 	debug("envs %v", envs)
 
 	// install /env.
