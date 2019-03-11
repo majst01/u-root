@@ -27,7 +27,7 @@ import (
 )
 
 var (
-	verbose  = flag.Bool("v", false, "print all build commands")
+	verbose  = flag.Bool("v", true, "print all build commands")
 	test     = flag.Bool("test", false, "Test mode: don't try to set control tty")
 	debug    = func(string, ...interface{}) {}
 	osInitGo = func() {}
@@ -139,7 +139,7 @@ func main() {
 	for _, v := range cmdList {
 		debug("Let's try to run %v", v)
 		if _, err := os.Stat(v); os.IsNotExist(err) {
-			debug("it's not there")
+			debug("it's not there %v", v)
 			continue
 		}
 
